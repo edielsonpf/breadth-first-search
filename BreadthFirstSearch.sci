@@ -2,9 +2,11 @@ function BreadthFirstSearch()
 
     target=[1 2 3; 4 5 6; 7 8 0];
     
-    // Cria um estado inicial aleatório (primeira solução)
-    newSolutions = createInitialState();
+     // Cria um estado inicial aleatório (primeira solução)
     //newSolutions = [1 2 3; 4 5 0; 7 8 6];
+    //newSolutions = [1 2 3; 4 0 5; 7 8 6];
+    newSolutions = [1 0 3; 4 2 5; 7 8 6];
+    //newSolutions = createInitialState();
     
     disp('Initial state');
     disp(newSolutions);
