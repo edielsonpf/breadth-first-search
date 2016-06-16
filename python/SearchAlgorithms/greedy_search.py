@@ -3,9 +3,9 @@ Created on Jun 15, 2016
 
 @author: Edielson
 '''
-from SearchAlgorithms.queue import Queue
+from SearchAlgorithms.priority_queue import PriorityQueue
         
-class breadth_first_search(object):
+class greedy_search(object):
     '''
     This class implements the breadth first search algorithm
     '''
@@ -36,32 +36,25 @@ class breadth_first_search(object):
         
         current = goal
         path = [current]
-        edge=[]
-        v=current
         while current != start:
             current = came_from[current]
-            u=current
             path.append(current)
-            edge.append((u,v))
-            v=u
         path.reverse()
-        
-        return path,edge    
+        return path    
     
     
     def search(self,start,target):
         #start a empty queue
-        frontier = Queue()
+        frontier = PriorityQueue()
         #insert ``start`` state in the queue
         frontier.put(start)
           
         #initialize control variables
         path = []
-        edges=[]
         came_from={}
         came_from[start]=None
         solution = False
-          
+                  
         #repeat while there are not visited candidate solutions
         while not frontier.empty():
             #take the first candidate solution
@@ -83,10 +76,12 @@ class breadth_first_search(object):
             for next_item in new_solutions:
                 #check if each expanded solution was already visited
                 if next_item not in came_from:
-                    #if not, add to the queue for evaluation
-                    frontier.put(next_item)
+                    #if not, evaluate the associated heuristic
+                    priority = self.problem.Heuristic(target,next)
+                    # and add to the priority queue for evaluation
+                    frontier.put(next_item,priority)
                     came_from[next_item] = current
                       
         if solution == True:
-            path,edges=self.__reconstruct_path(came_from, start, target)
-        return solution,path,edges          
+            path=self.__reconstruct_path(came_from, start, target)
+        return solution,path          
