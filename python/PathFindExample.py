@@ -1,4 +1,4 @@
-from SearchAlgorithms.bfs import breadth_first_search
+from SearchAlgorithms.breadth_first_search import breadth_first_search
 from graph import SimpleGraph
 
 class FindPath(object): 

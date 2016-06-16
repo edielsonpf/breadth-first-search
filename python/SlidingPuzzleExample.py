@@ -99,11 +99,7 @@ class SlidingPuzzle(object):
             newSolution[row,new_col]=0
             newSolution[row,column] = TargetBlock
             newSolutions.append(newSolution)
- 
-#         print('New solutions')
-#         for solution in newSolutions:
-#             print(solution)    
-        
+       
         return  newSolutions
 
 
