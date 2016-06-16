@@ -36,21 +36,28 @@ class greedy_search(object):
         
         current = goal
         path = [current]
+        edge=[]
+        v=current
         while current != start:
             current = came_from[current]
+            u=current
             path.append(current)
+            edge.append((u,v))
+            v=u
         path.reverse()
-        return path    
+        
+        return path,edge   
     
     
     def search(self,start,target):
         #start a empty queue
         frontier = PriorityQueue()
         #insert ``start`` state in the queue
-        frontier.put(start)
+        frontier.put(start,0)
           
         #initialize control variables
         path = []
+        edge=[]
         came_from={}
         came_from[start]=None
         solution = False
@@ -83,5 +90,5 @@ class greedy_search(object):
                     came_from[next_item] = current
                       
         if solution == True:
-            path=self.__reconstruct_path(came_from, start, target)
-        return solution,path          
+            path,edge=self.__reconstruct_path(came_from, start, target)
+        return solution,path,edge          

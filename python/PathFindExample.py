@@ -1,5 +1,4 @@
 from SearchAlgorithms.breadth_first_search import breadth_first_search
-from graph import SimpleGraph
 import networkx as nx
 
 try:
@@ -102,7 +101,7 @@ if __name__ == '__main__':
     G.add_nodes_from(nodes)
     G.add_edges_from(edges)
     
-    #You must change here if there is a different capacity for each link 
+    #You must change here if there is a different cost per edge 
     CostperEdge=[1 for i in range(len(edges))]
     
     #Adding the respective cost for each edge in the graph
