@@ -24,6 +24,11 @@ class FindPath(object):
         """Returns all possible states from ``current`` 
         """ 
         return  self.problem.neighbors(current)
+    
+    def EqualityTest(self,state_a,state_b): 
+        """Returns all possible states from ``current`` 
+        """ 
+        return  (state_a==state_b)
 
 
 if __name__ == '__main__':
@@ -47,22 +52,69 @@ if __name__ == '__main__':
     Problema = FindPath(example_graph)
     
     #Creating an object for breadth first search algorithm for ``FindPath`` problem
-    SerachObject = breadth_first_search(Problema)    
+    SearchObj = breadth_first_search(Problema)    
     
     
     #Finding solution
     
+#     start = 'Pouso Alegre'
+#     target = 'Belo Horizonte'
+#     print('\nSearching %s starting from %s...'%(start,target))
+#     came_from,path,solution = SearchObj.search(start,target)
+#     print('Done!\n')
+#     if solution == True:
+#         print('Path found!')
+#         string=(start)
+#         for city in path:
+#             if city != start:
+#                 string=(string+'->'+city)
+#         print(string)
+#     else:
+#         print('Path not found!')        
+#         
+#     start = 'Belo Horizonte'
+#     target = 'Itajuba'
+#     print('\nSearching %s starting from %s...'%(start,target))
+#     came_from,path,solution = SearchObj.search('Belo Horizonte','Itajuba')
+#     print('Done!\n')
+#     if solution == True:
+#         print('Path found!')
+#         string=(start)
+#         for city in path:
+#             if city != start:
+#                 string=(string+'->'+city)
+#         print(string)
+#     else:
+#         print('Path not found!')   
+#     
+#         
+#     start = 'Ouro Fino'
+#     target = 'Campinas'
+#     print('\nSearching %s starting from %s...'%(start,target))
+#     came_from,path,solution = SearchObj.search(start,target)
+#     print('Done!\n')
+#     if solution == True:
+#         print('Path found!')
+#         string=(start)
+#         for city in path:
+#             if city != start:
+#                 string=(string+'->'+city)
+#         print(string)
+#     else:
+#         print('Path not found!')   
+
     start = 'Pouso Alegre'
     target = 'Belo Horizonte'
     print('\nSearching %s starting from %s...'%(start,target))
-    came_from,path,solution = SerachObject.search(start,target)
+    solution,visited = SearchObj.search(start,target)
+    print(visited)
     print('Done!\n')
-    if solution == True:
+    if solution:
         print('Path found!')
         string=(start)
-        for city in path:
+        for city in visited:
             if city != start:
-                string=(string+'->'+city)
+                string=(string+' -> '+city)
         print(string)
     else:
         print('Path not found!')        
@@ -70,31 +122,32 @@ if __name__ == '__main__':
     start = 'Belo Horizonte'
     target = 'Itajuba'
     print('\nSearching %s starting from %s...'%(start,target))
-    came_from,path,solution = SerachObject.search('Belo Horizonte','Itajuba')
+    solution,visited = SearchObj.search('Belo Horizonte','Itajuba')
     print('Done!\n')
-    if solution == True:
+    print('Done!\n')
+    if solution:
         print('Path found!')
         string=(start)
-        for city in path:
+        for city in visited:
             if city != start:
-                string=(string+'->'+city)
+                string=(string+' -> '+city)
         print(string)
     else:
-        print('Path not found!')   
+        print('Path not found!')  
     
         
     start = 'Ouro Fino'
     target = 'Campinas'
     print('\nSearching %s starting from %s...'%(start,target))
-    came_from,path,solution = SerachObject.search(start,target)
+    solution,visited = SearchObj.search(start,target)
     print('Done!\n')
-    if solution == True:
+    if solution:
         print('Path found!')
         string=(start)
-        for city in path:
+        for city in visited:
             if city != start:
-                string=(string+'->'+city)
+                string=(string+' -> '+city)
         print(string)
     else:
-        print('Path not found!')   
+        print('Path not found!') 
     
