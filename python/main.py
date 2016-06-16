@@ -38,8 +38,9 @@ if __name__ == '__main__':
         'Itajuba': ['Santa Rita'],
         'Varginha': ['Belo Horizonte', 'Pouso Alegre'],
         'Cachoeira de Minas': ['Santa Rita','Pouso Alegre'],
-        'Congonhal': ['Pouso Alegre'],
-        'Belo Horizonte':['Varginha']
+        'Congonhal': ['Pouso Alegre', 'Ouro Fino'],
+        'Belo Horizonte':['Varginha'],
+        'Ouro Fino': ['Congonhal']
     }
     
     #Creating an problem object based on FindPath class
@@ -50,9 +51,10 @@ if __name__ == '__main__':
     
     
     #Finding solution
-    print('Searching Belo Horizonte starting from Pouso Alegre...')
+    
     start = 'Pouso Alegre'
     target = 'Belo Horizonte'
+    print('\nSearching %s starting from %s...'%(start,target))
     came_from,path,solution = SerachObject.search(start,target)
     print('Done!\n')
     if solution == True:
@@ -65,9 +67,9 @@ if __name__ == '__main__':
     else:
         print('Path not found!')        
         
-    print('\nSearching Itajuba starting from Belo Horizonte...')
     start = 'Belo Horizonte'
     target = 'Itajuba'
+    print('\nSearching %s starting from %s...'%(start,target))
     came_from,path,solution = SerachObject.search('Belo Horizonte','Itajuba')
     print('Done!\n')
     if solution == True:
@@ -81,4 +83,18 @@ if __name__ == '__main__':
         print('Path not found!')   
     
         
+    start = 'Ouro Fino'
+    target = 'Campinas'
+    print('\nSearching %s starting from %s...'%(start,target))
+    came_from,path,solution = SerachObject.search(start,target)
+    print('Done!\n')
+    if solution == True:
+        print('Path found!')
+        string=(start)
+        for city in path:
+            if city != start:
+                string=(string+'->'+city)
+        print(string)
+    else:
+        print('Path not found!')   
     
