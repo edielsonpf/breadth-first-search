@@ -24,7 +24,6 @@ class FindPath(object):
         """Returns all possible states from ``current`` 
         """ 
         return  self.problem.neighbors(current)
-    
 
 
 if __name__ == '__main__':

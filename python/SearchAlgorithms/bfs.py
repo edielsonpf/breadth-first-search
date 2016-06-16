@@ -3,7 +3,7 @@ Created on Jun 15, 2016
 
 @author: Edielson
 '''
-from queue import Queue
+from SearchAlgorithms.queue import Queue
         
 class breadth_first_search(object):
     '''
