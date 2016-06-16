@@ -5,7 +5,7 @@ Created on Jun 15, 2016
 '''
 from queue import Queue
         
-class search(object):
+class breadth_first_search(object):
     '''
     classdocs
     '''
@@ -16,31 +16,7 @@ class search(object):
         '''
         self.g = graph
     
-    def breadth_first_search(self,start,target):
-        frontier = Queue()
-        frontier.put(start)
-        visited = {}
-        visited[start] = True
-        solution = False
-        path=[start]=None
-        
-        while not frontier.empty():
-            current = frontier.get()
-            if current == target:
-                solution = True
-                path.append(current)
-                break
-            else:    
-                path.append(current)
-                print("Visiting %r" % current)
-                for next_item in self.g.neighbors(current):
-                    if next_item not in visited:
-                        frontier.put(next_item)
-                        visited[next_item] = True
-        
-        return solution,path
-    
-    def breadth_first_search2(self,start,target):
+    def search(self,start,target):
         frontier = Queue()
         frontier.put(start)
         path = []

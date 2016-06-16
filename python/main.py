@@ -1,11 +1,6 @@
+from SearchAlgorithms.bfs import breadth_first_search
 from graph import SimpleGraph
-from bfs import search
-import path
 
-cidades=['Pouso Alegre', 'Santa Rita', 'Pocos de Caldas', 'Varginha', 'Belo Horizonte']
-
-for cidade in cidades:
-    print(cidade)
 
 if __name__ == '__main__':
     
@@ -20,14 +15,14 @@ if __name__ == '__main__':
         'Belo Horizonte':['Varginha']
     }
     
-    SerachObject = search(example_graph)    
-    came_from,path,solution = SerachObject.breadth_first_search2('Pouso Alegre','Belo Horizonte')
+    SerachObject = breadth_first_search(example_graph)    
+    came_from,path,solution = SerachObject.search('Pouso Alegre','Belo Horizonte')
     print(came_from)
     if solution == True:
         print(path)
         
     print('Searching Itajuba starting from Belo Horizonte')
-    came_from,path,solution = SerachObject.breadth_first_search2('Belo Horizonte','Itajuba')
+    came_from,path,solution = SerachObject.search('Belo Horizonte','Itajuba')
     print(came_from)
     if solution == True:
         print(path)
