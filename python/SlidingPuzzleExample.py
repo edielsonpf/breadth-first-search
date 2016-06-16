@@ -1,4 +1,4 @@
-from SearchAlgorithms.bfs import breadth_first_search
+from SearchAlgorithms.bfs_matrix import breadth_first_search
 import numpy as np
 
 class SlidingPuzzle(object): 
@@ -115,8 +115,7 @@ if __name__ == '__main__':
     
 #     start=np.matrix([[4, 6, 3],[1, 0, 8],[7, 2, 5]])
     start=np.matrix([[1, 2, 3],[4, 5, 6],[7, 0, 8]])
-    print('Start\n%s'%start)
-    
+        
     #Creating an problem object based on FindPath class
     Problema = SlidingPuzzle(3)
      

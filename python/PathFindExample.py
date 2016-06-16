@@ -55,64 +55,15 @@ if __name__ == '__main__':
     SearchObj = breadth_first_search(Problema)    
     
     
-    #Finding solution
-    
-#     start = 'Pouso Alegre'
-#     target = 'Belo Horizonte'
-#     print('\nSearching %s starting from %s...'%(start,target))
-#     came_from,path,solution = SearchObj.search(start,target)
-#     print('Done!\n')
-#     if solution == True:
-#         print('Path found!')
-#         string=(start)
-#         for city in path:
-#             if city != start:
-#                 string=(string+'->'+city)
-#         print(string)
-#     else:
-#         print('Path not found!')        
-#         
-#     start = 'Belo Horizonte'
-#     target = 'Itajuba'
-#     print('\nSearching %s starting from %s...'%(start,target))
-#     came_from,path,solution = SearchObj.search('Belo Horizonte','Itajuba')
-#     print('Done!\n')
-#     if solution == True:
-#         print('Path found!')
-#         string=(start)
-#         for city in path:
-#             if city != start:
-#                 string=(string+'->'+city)
-#         print(string)
-#     else:
-#         print('Path not found!')   
-#     
-#         
-#     start = 'Ouro Fino'
-#     target = 'Campinas'
-#     print('\nSearching %s starting from %s...'%(start,target))
-#     came_from,path,solution = SearchObj.search(start,target)
-#     print('Done!\n')
-#     if solution == True:
-#         print('Path found!')
-#         string=(start)
-#         for city in path:
-#             if city != start:
-#                 string=(string+'->'+city)
-#         print(string)
-#     else:
-#         print('Path not found!')   
-
     start = 'Pouso Alegre'
     target = 'Belo Horizonte'
     print('\nSearching %s starting from %s...'%(start,target))
-    solution,visited = SearchObj.search(start,target)
-    print(visited)
+    solution,path = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
         print('Path found!')
         string=(start)
-        for city in visited:
+        for city in path:
             if city != start:
                 string=(string+' -> '+city)
         print(string)
@@ -122,13 +73,13 @@ if __name__ == '__main__':
     start = 'Belo Horizonte'
     target = 'Itajuba'
     print('\nSearching %s starting from %s...'%(start,target))
-    solution,visited = SearchObj.search('Belo Horizonte','Itajuba')
+    solution,path = SearchObj.search('Belo Horizonte','Itajuba')
     print('Done!\n')
     print('Done!\n')
     if solution:
         print('Path found!')
         string=(start)
-        for city in visited:
+        for city in path:
             if city != start:
                 string=(string+' -> '+city)
         print(string)
@@ -139,12 +90,12 @@ if __name__ == '__main__':
     start = 'Ouro Fino'
     target = 'Campinas'
     print('\nSearching %s starting from %s...'%(start,target))
-    solution,visited = SearchObj.search(start,target)
+    solution,path = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
         print('Path found!')
         string=(start)
-        for city in visited:
+        for city in path:
             if city != start:
                 string=(string+' -> '+city)
         print(string)
