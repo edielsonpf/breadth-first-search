@@ -120,7 +120,7 @@ if __name__ == '__main__':
     
     start = 'Pouso Alegre'
     target = 'Belo Horizonte'
-    print('\nSearching %s starting from %s...'%(start,target))
+    print('\nSearching %s starting from %s...'%(target,start))
     solution,path,path_edges = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
@@ -140,7 +140,7 @@ if __name__ == '__main__':
             
     start = 'Belo Horizonte'
     target = 'Itajuba'
-    print('\nSearching %s starting from %s...'%(start,target))
+    print('\nSearching %s starting from %s...'%(target,start))
     solution,path,path_edges = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
@@ -158,7 +158,7 @@ if __name__ == '__main__':
         G.add_weighted_edges_from([(u,v,CostperEdge[edges.index((u,v))])])    
     start = 'Ouro Fino'
     target = 'Campinas'
-    print('\nSearching %s starting from %s...'%(start,target))
+    print('\nSearching %s starting from %s...'%(target,start))
     solution,path,path_edges = SearchObj.search(start,target)
     print('Done!\n')
     if solution:

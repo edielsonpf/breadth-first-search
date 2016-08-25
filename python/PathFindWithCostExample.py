@@ -1,5 +1,6 @@
 from SearchAlgorithms.greedy_search import greedy_search
 import networkx as nx
+import numpy as np
 
 try:
     import matplotlib.pyplot as plt
@@ -80,9 +81,16 @@ class FindPath(object):
         return  self.problem.neighbors(current)
     
     def Heuristic(self,target,current): 
-        """Returns all possible states from ``current`` 
+        """Returns heuristic associated to ``current`` 
         """ 
-        return  self.problem.get_edge_data(current, target)
+        edge = self.problem.get_edge_data(current, target)
+        if edge == None:
+            Heuristic = np.inf
+        else:
+            Heuristic = edge.get('weight')
+        
+        return Heuristic
+    
           
     
     
@@ -136,7 +144,7 @@ if __name__ == '__main__':
     
     start = 'Pouso Alegre'
     target = 'Belo Horizonte'
-    print('\nSearching %s starting from %s...'%(start,target))
+    print('\nSearching %s starting from %s...'%(target,start))
     solution,path,path_edges = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
@@ -161,7 +169,7 @@ if __name__ == '__main__':
             
     start = 'Belo Horizonte'
     target = 'Itajuba'
-    print('\nSearching %s starting from %s...'%(start,target))
+    print('\nSearching %s starting from %s...'%(target,start))
     solution,path,path_edges = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
@@ -186,7 +194,7 @@ if __name__ == '__main__':
         
     start = 'Ouro Fino'
     target = 'Campinas'
-    print('\nSearching %s starting from %s...'%(start,target))
+    print('\nSearching %s starting from %s...'%(target,start))
     solution,path,path_edges = SearchObj.search(start,target)
     print('Done!\n')
     if solution:
