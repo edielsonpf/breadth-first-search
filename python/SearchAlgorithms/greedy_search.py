@@ -71,7 +71,7 @@ class greedy_search(object):
               
             #evaluate is this is the objective
             if self.problem.ObjectiveTest(current,target) == True:
-                #if true, finish serach
+                #if true, finish search
                 solution = True
                 break
               
@@ -84,7 +84,8 @@ class greedy_search(object):
                 #check if each expanded solution was already visited
                 if next_item not in came_from:
                     #if not, evaluate the associated heuristic
-                    priority = self.problem.Heuristic(target,next)
+                    priority = self.problem.Heuristic(target,next_item)
+#                     print(priority)
                     # and add to the priority queue for evaluation
                     frontier.put(next_item,priority)
                     came_from[next_item] = current
