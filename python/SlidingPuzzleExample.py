@@ -109,8 +109,8 @@ if __name__ == '__main__':
     target=np.matrix([[1, 2, 3],[4, 5, 6],[7, 8, 0]])
     print('Target:\n%s'%target)
     
-#    start=np.matrix([[4, 6, 3],[1, 0, 8],[7, 2, 5]])
-    start=np.matrix([[1, 2, 3],[4, 5, 6],[7, 0, 8]])
+    start=np.matrix([[4, 6, 3],[1, 0, 8],[7, 2, 5]])
+    #start=np.matrix([[1, 2, 3],[4, 5, 6],[7, 0, 8]])
     print('Start:\n%s'%start)
         
     #Creating an problem object based on FindPath class
