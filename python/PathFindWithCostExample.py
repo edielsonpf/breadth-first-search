@@ -83,12 +83,17 @@ class FindPath(object):
     def Heuristic(self,target,current): 
         """Returns heuristic associated to ``current`` 
         """ 
-        edge = self.problem.get_edge_data(current, target)
-        if edge == None:
-            Heuristic = np.inf
-        else:
-            Heuristic = edge.get('weight')
+        custo_linha_reta={('Pouso Alegre','Belo Horizonte'):350,
+                      ('Santa Rita','Belo Horizonte'):380,
+                      ('Itajuba','Belo Horizonte'): 500,
+                      ('Cachoeira de Minas','Belo Horizonte'):400,
+                      ('Varginha','Belo Horizonte'):250,
+                      ('Congonhal','Belo Horizonte'):420,
+                      ('Ouro Fino','Belo Horizonte'):530,
+                      ('Belo Horizonte','Belo Horizonte'):0}
         
+        Heuristic = custo_linha_reta.get((current, target))
+        print (Heuristic)                
         return Heuristic
     
           
@@ -97,8 +102,7 @@ class FindPath(object):
 if __name__ == '__main__':
     
     nodes = ['Pouso Alegre','Santa Rita','Varginha','Congonhal',
-             'Cachoeira de Minas','Itajuba','Belo Horizonte','Congonhal',
-             'Ouro Fino']
+             'Cachoeira de Minas','Itajuba','Belo Horizonte','Ouro Fino']
 
     edges=[('Pouso Alegre','Santa Rita'),('Pouso Alegre','Varginha'),('Pouso Alegre','Congonhal'),('Pouso Alegre','Cachoeira de Minas'),
            ('Santa Rita','Pouso Alegre'),('Santa Rita','Itajuba'),('Santa Rita','Cachoeira de Minas'),
@@ -125,6 +129,8 @@ if __name__ == '__main__':
            ('Congonhal','Ouro Fino'):22,
            ('Belo Horizonte','Varginha'):250,
            ('Ouro Fino','Congonhal'):22 }
+    
+    
     
     G=nx.DiGraph()
     
@@ -160,51 +166,51 @@ if __name__ == '__main__':
     
     
     
-    #Adding the respective cost for each edge in the graph
-    G.clear()
-    G.add_nodes_from(nodes)
-    #Adding the respective cost for each edge in the graph
-    for u,v in edges:
-        G.add_edge(u, v, weight=cost[u,v])
-            
-    start = 'Belo Horizonte'
-    target = 'Itajuba'
-    print('\nSearching %s starting from %s...'%(target,start))
-    solution,path,path_edges = SearchObj.search(start,target)
-    print('Done!\n')
-    if solution:
-        print('Path found!')
-        printPath(path,start)
-        for u,v in edges:
-            if (u,v) not in path_edges:
-                G.remove_edge(u, v)
-        plotGraph(G, 1, positions)        
-    else:
-        print('Path not found!')  
-    
-    
-    
-    
-    #Adding the respective cost for each edge in the graph
-    G.clear()
-    G.add_nodes_from(nodes)
-    #Adding the respective cost for each edge in the graph
-    for u,v in edges:
-        G.add_edge(u, v, weight=cost[u,v])
-        
-    start = 'Ouro Fino'
-    target = 'Campinas'
-    print('\nSearching %s starting from %s...'%(target,start))
-    solution,path,path_edges = SearchObj.search(start,target)
-    print('Done!\n')
-    if solution:
-        print('Path found!')
-        printPath(path,start)
-        for u,v in edges:
-            print(u,v)
-            if (u,v) not in path_edges:
-                G.remove_edge(u, v)
-        plotGraph(G, 1, positions)        
-    else:
-        print('Path not found!') 
-    
+#    #Adding the respective cost for each edge in the graph
+#    G.clear()
+#    G.add_nodes_from(nodes)
+#    #Adding the respective cost for each edge in the graph
+#    for u,v in edges:
+#        G.add_edge(u, v, weight=cost[u,v])
+#            
+#    start = 'Belo Horizonte'
+#    target = 'Itajuba'
+#    print('\nSearching %s starting from %s...'%(target,start))
+#    solution,path,path_edges = SearchObj.search(start,target)
+#    print('Done!\n')
+#    if solution:
+#        print('Path found!')
+#        printPath(path,start)
+#        for u,v in edges:
+#            if (u,v) not in path_edges:
+#                G.remove_edge(u, v)
+#        plotGraph(G, 1, positions)        
+#    else:
+#        print('Path not found!')  
+#    
+#    
+#    
+#    
+#    #Adding the respective cost for each edge in the graph
+#    G.clear()
+#    G.add_nodes_from(nodes)
+#    #Adding the respective cost for each edge in the graph
+#    for u,v in edges:
+#        G.add_edge(u, v, weight=cost[u,v])
+#        
+#    start = 'Ouro Fino'
+#    target = 'Campinas'
+#    print('\nSearching %s starting from %s...'%(target,start))
+#    solution,path,path_edges = SearchObj.search(start,target)
+#    print('Done!\n')
+#    if solution:
+#        print('Path found!')
+#        printPath(path,start)
+#        for u,v in edges:
+#            print(u,v)
+#            if (u,v) not in path_edges:
+#                G.remove_edge(u, v)
+#        plotGraph(G, 1, positions)        
+#    else:
+#        print('Path not found!') 
+#    
